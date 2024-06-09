@@ -4,7 +4,6 @@ __all__ = ['twitter_download']
 
 from ..common import *
 from .universal import *
-from .vine import vine_download
 
 def extract_m3u(source):
     r1 = get_content(source)
@@ -34,9 +33,9 @@ def twitter_download(url, output_dir='.', merge=True, info_only=False, **kwargs)
                              **kwargs)
         return
 
-    m = re.match('^https?://(mobile\.)?twitter\.com/([^/]+)/status/(\d+)', url)
+    m = re.match('^https?://(mobile\.)?(x|twitter)\.com/([^/]+)/status/(\d+)', url)
     assert m
-    screen_name, item_id = m.group(2), m.group(3)
+    screen_name, item_id = m.group(3), m.group(4)
     page_title = "{} [{}]".format(screen_name, item_id)
 
     # FIXME: this API won't work for protected or nsfw contents
@@ -77,6 +76,6 @@ def twitter_download(url, output_dir='.', merge=True, info_only=False, **kwargs)
     # TODO: should we deal with quoted tweets?
 
 
-site_info = "Twitter.com"
+site_info = "X.com"
 download = twitter_download
 download_playlist = playlist_not_supported('twitter')

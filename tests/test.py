@@ -19,6 +19,7 @@ from you_get.extractors import (
 class YouGetTests(unittest.TestCase):
     def test_imgur(self):
         imgur.download('http://imgur.com/WVLk5nD', info_only=True)
+        imgur.download('https://imgur.com/we-should-have-listened-WVLk5nD', info_only=True)
 
     def test_magisto(self):
         magisto.download(
@@ -40,10 +41,10 @@ class YouGetTests(unittest.TestCase):
         #)
 
     def test_acfun(self):
-        acfun.download('https://www.acfun.cn/v/ac11701912', info_only=True)
+        acfun.download('https://www.acfun.cn/v/ac44560432', info_only=True)
 
     #def test_bilibili(self):
-    #    bilibili.download('https://www.bilibili.com/video/BV1sL4y177sC', info_only=True)
+        #bilibili.download('https://www.bilibili.com/video/BV1sL4y177sC', info_only=True)
 
     #def test_soundcloud(self):
         ## single song
